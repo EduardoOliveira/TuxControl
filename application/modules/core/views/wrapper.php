@@ -50,7 +50,7 @@
     </script>
 
 </head>
-<body class="bg-img-num1" data-ng-controller="coreController">
+<body class="bg-img-num1" data-ng-controller="statsController">
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -69,6 +69,26 @@
                         <li class="active">
                             <a href="index.html"><span class="icon-home"></span> HOME </a>
                         </li>
+                        <?php foreach(TuxCore::menu_paths() as $module):?>
+                            <li class="<?if(count($module['entry'])>0)echo"dropdown"?>">
+
+                                <?php if(empty($module['title']['path'])):?>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <?php else:?>
+                                <a href="<?=$module['entry']['path']?>">
+                                <?php endif;?>
+                                    <span class="<?=$module['title']['icon']?>"></span>
+                                    <?=$module['title']['label']?>
+                                </a>
+                            <?php if(count($module['entry'])>0):?>
+                            <ul class="dropdown-menu">
+                            <?php foreach($module['entry'] as $entry):?>
+                                <li><a href="<?=base_url($entry['path'])?>" class="list-group-item"><?=$entry['label']?></a></li>
+                            <?php endforeach;?>
+                            </ul>
+                            <?php endif;?>
+                            </li>
+                        <?php endforeach;?>
                     </ul>
                 </div>
             </nav>

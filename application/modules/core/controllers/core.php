@@ -13,6 +13,6 @@ class Core extends MX_Controller
 
     public function settings()
     {
-        echo "dasd";
+        
     }
 }

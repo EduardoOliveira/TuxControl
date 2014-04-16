@@ -1,11 +1,11 @@
-var statsController = function ($scope, statsController) {
+var statsController = function ($scope, statsService) {
     $scope.serviceUnavailable = true;
     $scope.instant_usage = 0;
 
     var controller = this;
 
     $scope.refresh = function () {
-        statsController.getInstanteUsage().then(function (instant_usage) {
+        statsService.getInstanteUsage().then(function (instant_usage) {
             $scope.serviceUnavailable = false;
             $scope.instant_usage = instant_usage.cpucurrent;
             console.log(instant_usage);
