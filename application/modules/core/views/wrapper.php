@@ -56,18 +56,18 @@
         <div class="col-md-12">
             <nav class="navbar brb" role="navigation">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-ex1-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-reorder"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
-                        <img src="<?php site_url() ?>/assets/img/logo.png"/></a>
+                    <a class="navbar-brand" href="/">
+                        <img src="<?php site_url() ?>/assets/img/logo.png"/>
+                    </a>
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="index.html"><span class="icon-home"></span> HOME </a>
+                            <a href="/"><span class="icon-home"></span> HOME </a>
                         </li>
                         <?php foreach(TuxCore::menu_paths() as $module):?>
                             <li class="<?if(count($module['entry'])>0)echo"dropdown"?>">
@@ -83,12 +83,15 @@
                             <?php if(count($module['entry'])>0):?>
                             <ul class="dropdown-menu">
                             <?php foreach($module['entry'] as $entry):?>
-                                <li><a href="<?=base_url($entry['path'])?>" class="list-group-item"><?=$entry['label']?></a></li>
+                                <li><a href="<?=base_url($entry['path'])?>" ><?=$entry['label']?></a></li>
                             <?php endforeach;?>
                             </ul>
                             <?php endif;?>
                             </li>
                         <?php endforeach;?>
+                        <li>
+                            <a href="#"><span class="icon-off"></span>Logout</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -96,11 +99,6 @@
     </div>
     <div class="row">
         <div class="col-md-2">
-            <div class="block block-drop-shadow">
-                <div class="content list-group list-group-icons">
-                    <a href="#" class="list-group-item"><span class="icon-off"></span>Logout</a>
-                </div>
-            </div>
             <div class="block block-drop-shadow">
                 <div class="head bg-dot20">
                     <h2>CPU

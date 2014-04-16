@@ -2,7 +2,7 @@
 
 $menu_paths['stats']['title'] = array(
     "label" => "Stats",
-    "icon" => "icon-off",
+    "icon" => "icon-bar-chart",
     "tank" => "",
     "path"=>""
 );
