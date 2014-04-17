@@ -8,7 +8,8 @@ class Core extends MX_Controller
 
     public function index()
     {
-        $this->load->view("core/wrapper");
+        $content['main_content'] = $this->load->view("core/launcher",array(),true);
+        $this->load->view("core/wrapper",$content);
     }
 
     public function settings()

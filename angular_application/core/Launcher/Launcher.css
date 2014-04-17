@@ -1,0 +1,15 @@
+.launcher-item> .icon{
+    padding: 5px;
+}
+
+.launcher-item > .icon  img{
+    width: 100%;
+    height: 100%;
+    border: black 3px;
+    border-radius: 50%;
+}
+
+.launcher-item > .icon span{
+    display: inline-block;
+    vertical-align: bottom;
+}

@@ -20,7 +20,7 @@ class TuxCore
         return TuxCore::$MENU_PATHS = $menu_paths;
     }
 
-    private static function get_modules()
+    public static function get_modules()
     {
         if (count(TuxCore::$MODULES) > 0) return TuxCore::$MODULES;
         $rtn = array();

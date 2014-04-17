@@ -8,7 +8,6 @@ var statsController = function ($scope, statsService) {
         statsService.getInstanteUsage().then(function (instant_usage) {
             $scope.serviceUnavailable = false;
             $scope.instant_usage = instant_usage.cpucurrent;
-            console.log(instant_usage);
         }, controller._onServiceError);
     }
 
