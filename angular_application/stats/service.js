@@ -1,5 +1,5 @@
 var statsService = function ($http, $q) {
-    this._url = "/stats/api/cpu/";
+    this._url = window.site_url+"stats/api/cpu/";
     this._instante_usage = "instant_usage";
     var service = this;
 

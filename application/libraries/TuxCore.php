@@ -4,20 +4,25 @@ class TuxCore
 {
 
     private static $MODULES = array();
-    private static $MENU_PATHS = array();
+    private static $CONFIG;
     private static $CI;
 
-    public static function menu_paths()
+    public static function load_global_config($conf_name)
     {
-        if (count(TuxCore::$MENU_PATHS) > 0) return TuxCore::$MENU_PATHS;
+        if (!@empty(TuxCore::$CONFIG[$conf_name])) return TuxCore::$CONFIG[$conf_name];
+        $cfg = array();
 
-        $menu_paths = array();
-        foreach (TuxCore::get_modules() as $module_name) {
-            if (is_file(APPPATH . "/modules/" . $module_name . "/config/menu_paths.php")) {
-                include_once(APPPATH . "/modules/" . $module_name . "/config/menu_paths.php");
-            }
+        foreach (TuxCore::get_modules() as $module) {
+            $conf = TuxCore::$CI->load->config("$module/$conf_name", false, true);
+            if (is_array($conf))
+                $cfg = array_merge($cfg,$conf);
         }
-        return TuxCore::$MENU_PATHS = $menu_paths;
+
+        usort($cfg, function($a,$b){
+            return $a['title']["order"] - $b['title']["order"];
+        });
+
+        return TuxCore::$CONFIG[$conf_name] = $cfg;
     }
 
     private static function get_modules()

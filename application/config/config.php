@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost:8080/something';
+$config['base_url']	= 'http://knoker.no-ip.org/applications/TuxControl';
 
 /*
 |--------------------------------------------------------------------------

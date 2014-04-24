@@ -3,16 +3,17 @@
 class Core extends MX_Controller
 {
 
-    function __construct(){
-    }
-
     public function index()
     {
-        $this->load->view("core/wrapper");
+        $side_panel = $this->load->view("core/side_widgets",null,true);
+        $main_panel = "";
+        $this->load->view("core/wrapper", array("content_panels" => array($side_panel,$main_panel)));
     }
 
     public function settings()
     {
-        
+        $side_panel = $this->load->view("core/settings/settings_menu",null,true);
+        $main_panel = $this->load->view("core/settings/settings",null,true);
+        $this->load->view("core/wrapper", array("content_panels" => array($side_panel,$main_panel)));
     }
 }
